@@ -12,6 +12,16 @@ botao.addEventListener("click", function (event) {
     
     var pacienteTr = montaTr(paciente);
 
+    if (!validaPeso(paciente.peso)){
+        console.log("Peso Invalido");
+        return;
+    }
+
+    if (!validaAltura(paciente.altura)){
+        console.log("Altura Invalida");
+        return;
+    }
+
     var tabela = document.querySelector("#tabela-pacientes");
     
     tabela.appendChild(pacienteTr);
@@ -30,7 +40,7 @@ function obtemPacienteDoForm(form){
         gordura: form.gordura.value,
         imc: calculaImc(form.altura.value,form.peso.value)
     };
-    console.log(paciente);
+    
     return paciente;
 };
 
