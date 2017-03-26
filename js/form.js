@@ -10,7 +10,7 @@ botao.addEventListener("click", function (event) {
 
     var paciente =  obtemPacienteDoForm(form);
 
-    var pacienteTr = montaTr(paciente);
+    
 
     var erros = validaPaciente(paciente);
 
@@ -20,9 +20,7 @@ botao.addEventListener("click", function (event) {
         return;
     }
 
-    var tabela = document.querySelector("#tabela-pacientes");
-
-    tabela.appendChild(pacienteTr);
+    adicionaPacienteNaTabela(paciente);
 
     form.reset();
     var ul = document.querySelector("#mensagem-erro");
@@ -30,6 +28,12 @@ botao.addEventListener("click", function (event) {
 
 });
 
+
+function adicionaPacienteNaTabela(paciente){
+    var pacienteTr = montaTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
+};
 
 function obtemPacienteDoForm(form) {
     var paciente = {
@@ -49,8 +53,8 @@ function montaTr(paciente) {
 
     pacienteTr.appendChild(montaTd(paciente.nome, "info-nome"));
     pacienteTr.appendChild(montaTd(paciente.peso, "info-peso"));
-    pacienteTr.appendChild(montaTd(paciente.gordura, "info-gordura"));
     pacienteTr.appendChild(montaTd(paciente.altura, "info-altura"));
+    pacienteTr.appendChild(montaTd(paciente.gordura, "info-gordura"));
     pacienteTr.appendChild(montaTd(paciente.imc, "info-td"));
 
     return pacienteTr;
