@@ -42,7 +42,7 @@ function validaPeso(peso){
 }
 
 function validaAltura(altura){
-    return altura >0 && altura <3.0;
+    return altura >= 0 && altura <3.0;
 }
 
 
